@@ -4,7 +4,7 @@ This is a discovery strategy extension for Hazelcast to make discovery work on [
 This library compiles only on Java 8.
 
 ## Dependencies
-* ranger 0.2.1  
+* [marathon-client](https://github.com/mohitsoni/marathon-client) 0.4.2  
 
 ## Usage
 Hazelcast Marathon Discovery provides a easy way to enable member discovery with elastic applications on docker & DCOS
