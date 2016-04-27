@@ -1,0 +1,87 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.marathon.hazelcast.servicediscovery</groupId>
+    <artifactId>hazelcast-marathon-discovery</artifactId>
+    <version>0.0.1</version>
+    <packaging>jar</packaging>
+
+    <name>hazelcast-marathon-discovery</name>
+    <url>http://maven.apache.org</url>
+
+    <distributionManagement>
+        <repository>
+            <id>clojars</id>
+            <name>Clojars repository</name>
+            <url>https://clojars.org/repo</url>
+        </repository>
+    </distributionManagement>
+
+    <scm>
+        <connection>scm:git:https://github.com/phaneesh/hazelcast-ranger-discovery.git</connection>
+        <developerConnection>scm:git:https://github.com/phaneesh/hazelcast-ranger-discovery.git</developerConnection>
+        <tag>HEAD</tag>
+        <url>https://github.com/phaneesh/hazelcast-ranger-discovery</url>
+    </scm>
+
+    <licenses>
+        <license>
+            <name>The Apache Software License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>repo</distribution>
+            <comments>A business-friendly OSS license</comments>
+        </license>
+    </licenses>
+
+    <developers>
+        <developer>
+            <id>phaneesh</id>
+            <name>Phaneesh Nagaraja</name>
+            <email>phaneesh.n@gmail.com</email>
+        </developer>
+    </developers>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <hazelcast.version>3.6</hazelcast.version>
+        <marathon.client.version>0.4.2</marathon.client.version>
+        <junit.version>4.12</junit.version>
+        <wiremock.version>1.58</wiremock.version>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+    </properties>
+
+    <repositories>
+        <repository>
+            <id>clojars</id>
+            <name>Clojars repository</name>
+            <url>https://clojars.org/repo</url>
+        </repository>
+    </repositories>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.hazelcast</groupId>
+            <artifactId>hazelcast</artifactId>
+            <version>${hazelcast.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.github.mohitsoni</groupId>
+            <artifactId>marathon-client</artifactId>
+            <version>${marathon.client.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>${junit.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.github.tomakehurst</groupId>
+            <artifactId>wiremock</artifactId>
+            <version>${wiremock.version}</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+</project>
