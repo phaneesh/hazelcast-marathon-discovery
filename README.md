@@ -51,7 +51,7 @@ discoveryStrategyConfig.addProperty("marathon-endpoint", "http://my-marathon-mas
 //Namespace that needs to be used by ranger for this service
 discoveryStrategyConfig.addProperty("app-id", "my_app");
 //Hazelcast port index that is used in marathon configuration
-discoveryStrategyConfig.addProperty("port-index", 1);
+discoveryStrategyConfig.addProperty("port-index", "1");
 discoveryConfig.addDiscoveryStrategyConfig(discoveryStrategyConfig);
 //Create the hazelcast instance
 HazelcastInstance hazelcast = Hazelcast.newHazelcastInstance(config);
