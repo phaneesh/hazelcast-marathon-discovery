@@ -26,7 +26,7 @@ Use the following maven dependency:
 <dependency>
     <groupId>com.marathon.hazelcast.servicediscovery</groupId>
     <artifactId>hazelcast-marathon-discovery</artifactId>
-    <version>0.0.1</version>
+    <version>0.0.2</version>
 </dependency>
 ```
 
