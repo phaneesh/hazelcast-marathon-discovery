@@ -9,6 +9,9 @@
 
     <name>hazelcast-marathon-discovery</name>
     <url>http://maven.apache.org</url>
+    <description>
+        A simple to use marathon based discovery SPI for hazelcast
+    </description>
 
     <distributionManagement>
         <repository>
