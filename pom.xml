@@ -12,17 +12,17 @@
 
     <distributionManagement>
         <repository>
-            <id>clojars</id>
-            <name>Clojars repository</name>
-            <url>https://clojars.org/repo</url>
+            <id>bintray-phaneesh-maven</id>
+            <name>phaneesh-maven</name>
+            <url>https://api.bintray.com/maven/phaneesh/maven/hazelcast-marathon-discovery/;publish=1</url>
         </repository>
     </distributionManagement>
 
     <scm>
-        <connection>scm:git:https://github.com/phaneesh/hazelcast-ranger-discovery.git</connection>
-        <developerConnection>scm:git:https://github.com/phaneesh/hazelcast-ranger-discovery.git</developerConnection>
+        <connection>scm:git:https://github.com/phaneesh/hazelcast-marathon-discovery.git</connection>
+        <developerConnection>scm:git:https://github.com/phaneesh/hazelcast-marathon-discovery.git</developerConnection>
         <tag>HEAD</tag>
-        <url>https://github.com/phaneesh/hazelcast-ranger-discovery</url>
+        <url>https://github.com/phaneesh/hazelcast-marathon-discovery</url>
     </scm>
 
     <licenses>

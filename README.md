@@ -1,4 +1,4 @@
-# Hazelcast Marathon Discovery [![Travis build status](https://travis-ci.org/phaneesh/hazelcast-ranger-discovery.svg?branch=master)](https://travis-ci.org/phaneesh/hazelcast-ranger-discovery)
+# Hazelcast Marathon Discovery [![Travis build status](https://travis-ci.org/phaneesh/hazelcast-marathon-discovery.svg?branch=master)](https://travis-ci.org/phaneesh/hazelcast-marathon-discovery)
 
 This is a discovery strategy extension for Hazelcast to make discovery work on [Marathon](https://mesosphere.github.io/marathon/).
 This library compiles only on Java 8.
@@ -20,14 +20,7 @@ like environment where using a static host list or using multicast based discove
         mvn install
 
 ### Maven Dependency
-Use the following repository:
-```xml
-<repository>
-    <id>clojars</id>
-    <name>Clojars repository</name>
-    <url>https://clojars.org/repo</url>
-</repository>
-```
+
 Use the following maven dependency:
 ```xml
 <dependency>
