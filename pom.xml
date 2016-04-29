@@ -47,7 +47,7 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <hazelcast.version>3.6</hazelcast.version>
+        <hazelcast.version>3.6.2</hazelcast.version>
         <marathon.client.version>0.4.2</marathon.client.version>
         <junit.version>4.12</junit.version>
         <wiremock.version>1.58</wiremock.version>
@@ -68,6 +68,7 @@
             <groupId>com.hazelcast</groupId>
             <artifactId>hazelcast</artifactId>
             <version>${hazelcast.version}</version>
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>com.github.mohitsoni</groupId>
