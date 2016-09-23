@@ -15,9 +15,9 @@
 
     <distributionManagement>
         <repository>
-            <id>bintray-phaneesh-maven</id>
-            <name>phaneesh-maven</name>
-            <url>https://api.bintray.com/maven/phaneesh/maven/hazelcast-marathon-discovery/;publish=1</url>
+            <id>clojars</id>
+            <name>Clojars repository</name>
+            <url>https://clojars.org/repo</url>
         </repository>
     </distributionManagement>
 
