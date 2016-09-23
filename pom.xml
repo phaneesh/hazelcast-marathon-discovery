@@ -4,7 +4,7 @@
 
     <groupId>com.marathon.hazelcast.servicediscovery</groupId>
     <artifactId>hazelcast-marathon-discovery</artifactId>
-    <version>0.0.3</version>
+    <version>0.0.5</version>
     <packaging>jar</packaging>
 
     <name>hazelcast-marathon-discovery</name>
@@ -47,8 +47,8 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <hazelcast.version>3.6.2</hazelcast.version>
-        <marathon.client.version>0.4.2</marathon.client.version>
+        <hazelcast.version>3.7.1</hazelcast.version>
+        <marathon.client.version>0.3.0</marathon.client.version>
         <junit.version>4.12</junit.version>
         <wiremock.version>1.58</wiremock.version>
         <maven.compiler.source>1.8</maven.compiler.source>
@@ -71,7 +71,7 @@
             <scope>provided</scope>
         </dependency>
         <dependency>
-            <groupId>com.github.mohitsoni</groupId>
+            <groupId>com.mesosphere</groupId>
             <artifactId>marathon-client</artifactId>
             <version>${marathon.client.version}</version>
         </dependency>

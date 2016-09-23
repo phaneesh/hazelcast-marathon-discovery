@@ -55,7 +55,7 @@ Use the following dependency:
 <dependency>
     <groupId>com.marathon.hazelcast.servicediscovery</groupId>
     <artifactId>hazelcast-marathon-discovery</artifactId>
-    <version>0.0.3</version>
+    <version>0.0.4</version>
 </dependency>
 ```
 * SBT
