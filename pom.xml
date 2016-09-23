@@ -4,7 +4,7 @@
 
     <groupId>com.marathon.hazelcast.servicediscovery</groupId>
     <artifactId>hazelcast-marathon-discovery</artifactId>
-    <version>0.0.5</version>
+    <version>0.0.6</version>
     <packaging>jar</packaging>
 
     <name>hazelcast-marathon-discovery</name>
@@ -48,7 +48,8 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <hazelcast.version>3.7.1</hazelcast.version>
-        <marathon.client.version>0.3.0</marathon.client.version>
+        <feign.version>8.17.0</feign.version>
+        <gson.version>2.7</gson.version>
         <junit.version>4.12</junit.version>
         <wiremock.version>1.58</wiremock.version>
         <maven.compiler.source>1.8</maven.compiler.source>
@@ -71,9 +72,24 @@
             <scope>provided</scope>
         </dependency>
         <dependency>
-            <groupId>com.mesosphere</groupId>
-            <artifactId>marathon-client</artifactId>
-            <version>${marathon.client.version}</version>
+            <groupId>com.netflix.feign</groupId>
+            <artifactId>feign-core</artifactId>
+            <version>${feign.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.netflix.feign</groupId>
+            <artifactId>feign-gson</artifactId>
+            <version>${feign.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.netflix.feign</groupId>
+            <artifactId>feign-httpclient</artifactId>
+            <version>${feign.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+            <version>${gson.version}</version>
         </dependency>
         <dependency>
             <groupId>junit</groupId>

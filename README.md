@@ -5,7 +5,7 @@ This library compiles only on Java 8.
 
 ## Dependencies
 * [Hazelcast](https://hazelcast.com/)
-* [marathon-client](https://github.com/mohitsoni/marathon-client) 0.4.2  
+  
 
 ## Usage
 Hazelcast Marathon Discovery provides a easy way to enable member discovery with elastic applications on docker & DCOS
@@ -21,22 +21,19 @@ like environment where using a static host list or using multicast based discove
         mvn install
 
 ### Maven Dependency
-Add jcenter repository to project repositories:
+Add clojars repository to project repositories:
 * Maven
 ```xml
 <repository>
-    <snapshots>
-        <enabled>false</enabled>
-    </snapshots>
-    <id>central</id>
-    <name>bintray</name>
-    <url>http://jcenter.bintray.com</url>
+    <id>clojars</id>
+    <name>Clojars repository</name>
+    <url>https://clojars.org/repo</url>
 </repository>
 ```
 * SBT
 ```sbt
 resolvers ++= Seq(
-  "bintray" at "http://jcenter.bintray.com"
+  "clojars" at "https://clojars.org/repo"
 )
 ```
 
@@ -44,7 +41,7 @@ resolvers ++= Seq(
 ```gradle
 repositories {
     maven {
-        url 'http://jcenter.bintray.com'
+        url 'https://clojars.org/repo'
     }
 }
 ```
@@ -55,26 +52,26 @@ Use the following dependency:
 <dependency>
     <groupId>com.marathon.hazelcast.servicediscovery</groupId>
     <artifactId>hazelcast-marathon-discovery</artifactId>
-    <version>0.0.4</version>
+    <version>0.0.6</version>
 </dependency>
 ```
 * SBT
 ```sbt
-libraryDependencies += "com.marathon.hazelcast.servicediscovery" % "hazelcast-marathon-discovery" % "0.0.3"
+libraryDependencies += "com.marathon.hazelcast.servicediscovery" % "hazelcast-marathon-discovery" % "0.0.6"
 ```
 * Gradle
 ```gradle
-compile 'com.marathon.hazelcast.servicediscovery:hazelcast-marathon-discovery:0.0.3'
+compile 'com.marathon.hazelcast.servicediscovery:hazelcast-marathon-discovery:0.0.6'
 ```
 
 ### Using Hazelcast Marathon Discovery
 ```java
 Config config = new Config();
 //This is important to enable the discovery strategy
-config.setProperty(GroupProperty.DISCOVERY_SPI_ENABLED, "true");
-config.setProperty(GroupProperty.DISCOVERY_SPI_PUBLIC_IP_ENABLED, "true");
-config.setProperty(GroupProperty.SOCKET_CLIENT_BIND_ANY, "false");
-config.setProperty(GroupProperty.SOCKET_BIND_ANY, "false");
+config.setProperty("hazelcast.discovery.enabled", "true");
+config.setProperty("hazelcast.discovery.public.ip.enabled", "true");
+config.setProperty("hazelcast.socket.client.bind.any", "false");
+config.setProperty("hazelcast.socket.bind.any", "false");
 NetworkConfig networkConfig = config.getNetworkConfig();
 JoinConfig joinConfig = networkConfig.getJoin();
 joinConfig.getTcpIpConfig().setEnabled(false);

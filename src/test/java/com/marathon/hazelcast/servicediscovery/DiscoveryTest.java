@@ -16,6 +16,9 @@
 
 package com.marathon.hazelcast.servicediscovery;
 
+import client.model.v2.App;
+import client.model.v2.GetAppResponse;
+import client.model.v2.Task;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.github.tomakehurst.wiremock.junit.WireMockRule;
@@ -23,10 +26,6 @@ import com.google.common.collect.Lists;
 import com.hazelcast.config.*;
 import com.hazelcast.core.Hazelcast;
 import com.hazelcast.core.HazelcastInstance;
-import com.hazelcast.instance.GroupProperty;
-import mesosphere.marathon.client.model.v2.App;
-import mesosphere.marathon.client.model.v2.GetAppResponse;
-import mesosphere.marathon.client.model.v2.Task;
 import org.junit.Rule;
 import org.junit.Test;
 import java.io.IOException;
@@ -97,10 +96,10 @@ public class DiscoveryTest {
 
     private HazelcastInstance getHazelcastInstance(int port) throws UnknownHostException, InterruptedException {
         Config config = new Config();
-        config.setProperty(GroupProperty.DISCOVERY_SPI_ENABLED, "true");
-        config.setProperty(GroupProperty.DISCOVERY_SPI_PUBLIC_IP_ENABLED, "true");
-        config.setProperty(GroupProperty.SOCKET_CLIENT_BIND_ANY, "false");
-        config.setProperty(GroupProperty.SOCKET_BIND_ANY, "false");
+        config.setProperty("hazelcast.discovery.enabled", "true");
+        config.setProperty("hazelcast.discovery.public.ip.enabled", "true");
+        config.setProperty("hazelcast.socket.client.bind.any", "false");
+        config.setProperty("hazelcast.socket.bind.any", "false");
         NetworkConfig networkConfig = config.getNetworkConfig();
         networkConfig.getInterfaces().addInterface("127.0.0.1").setEnabled(true);
         networkConfig.setPort(port);

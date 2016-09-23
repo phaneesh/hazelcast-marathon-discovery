@@ -16,12 +16,12 @@
 
 package com.marathon.hazelcast.servicediscovery;
 
+import client.Marathon;
+import client.MarathonClient;
+import client.model.v2.GetAppResponse;
+import client.utils.MarathonException;
 import com.hazelcast.logging.ILogger;
 import com.hazelcast.util.CollectionUtil;
-import mesosphere.marathon.client.Marathon;
-import mesosphere.marathon.client.MarathonClient;
-import mesosphere.marathon.client.model.v2.GetAppResponse;
-import mesosphere.marathon.client.utils.MarathonException;
 
 import java.util.Collections;
 import java.util.List;
