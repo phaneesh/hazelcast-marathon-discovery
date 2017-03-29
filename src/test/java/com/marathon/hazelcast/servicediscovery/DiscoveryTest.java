@@ -98,7 +98,7 @@ public class DiscoveryTest {
         Config config = new Config();
         config.setProperty("hazelcast.discovery.enabled", "true");
         config.setProperty("hazelcast.discovery.public.ip.enabled", "true");
-        config.setProperty("hazelcast.socket.client.bind.any", "false");
+        config.setProperty("hazelcast.socket.client.bind.any", "true");
         config.setProperty("hazelcast.socket.bind.any", "false");
         NetworkConfig networkConfig = config.getNetworkConfig();
         networkConfig.getInterfaces().addInterface("127.0.0.1").setEnabled(true);

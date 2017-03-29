@@ -61,9 +61,10 @@ public class MarathonServiceDiscoveryHelper {
             try {
                 GetAppResponse response = marathon.getApp(app);
                 List<ServiceNode> nodes = response.getApp().getTasks().stream()
-                        .map( task -> new ServiceNode(task.getHost(),
+                        .map(task -> new ServiceNode(task.getHost(),
                                 CollectionUtil.<Integer>getItemAtPositionOrNull(task.getPorts(), portIndex)))
                         .collect(Collectors.toList());
+                nodes.forEach(n -> log.info("Fetched node: " + n.getHost() + ":" + n.getPort()));
                 serviceNodes.getAndSet(nodes);
             } catch (MarathonException e) {
                 log.severe("Error getting app metadata from marathon", e);
