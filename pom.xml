@@ -2,9 +2,9 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.marathon.hazelcast.servicediscovery</groupId>
+    <groupId>com.phonepe.platform</groupId>
     <artifactId>hazelcast-marathon-discovery</artifactId>
-    <version>0.0.7</version>
+    <version>0.0.8-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <name>hazelcast-marathon-discovery</name>
@@ -14,11 +14,21 @@
     </description>
 
     <distributionManagement>
+<!--        <repository>-->
+<!--            <id>clojars</id>-->
+<!--            <name>Clojars repository</name>-->
+<!--            <url>https://clojars.org/repo</url>-->
+<!--        </repository>-->
         <repository>
-            <id>clojars</id>
-            <name>Clojars repository</name>
-            <url>https://clojars.org/repo</url>
+            <id>phonepe-releases</id>
+            <name>releases</name>
+            <url>http://artifactory.phonepe.com/content/repositories/releases</url>
         </repository>
+        <snapshotRepository>
+            <id>phonepe-snapshots</id>
+            <name>snapshots</name>
+            <url>http://artifactory.phonepe.com/content/repositories/snapshots</url>
+        </snapshotRepository>
     </distributionManagement>
 
     <scm>

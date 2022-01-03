@@ -28,4 +28,8 @@ public interface MarathonDiscoveryConfiguration {
 
     PropertyDefinition PORT_INDEX = new SimplePropertyDefinition("port-index", PropertyTypeConverter.STRING);
 
+    PropertyDefinition MARATHON_USERNAME = new SimplePropertyDefinition("marathon-username", true, PropertyTypeConverter.STRING);
+
+    PropertyDefinition MARATHON_PASSWORD = new SimplePropertyDefinition("marathon-password", true, PropertyTypeConverter.STRING);
+
 }

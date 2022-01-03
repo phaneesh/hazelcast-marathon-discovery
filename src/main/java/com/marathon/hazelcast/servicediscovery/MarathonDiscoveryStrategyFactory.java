@@ -38,6 +38,8 @@ public class MarathonDiscoveryStrategyFactory implements DiscoveryStrategyFactor
         properties.add(MarathonDiscoveryConfiguration.APP_ID);
         properties.add(MarathonDiscoveryConfiguration.PORT_INDEX);
         properties.add(MarathonDiscoveryConfiguration.MARATHON_ENDPOINT);
+        properties.add(MarathonDiscoveryConfiguration.MARATHON_USERNAME);
+        properties.add(MarathonDiscoveryConfiguration.MARATHON_PASSWORD);
     }
 
     @Override
