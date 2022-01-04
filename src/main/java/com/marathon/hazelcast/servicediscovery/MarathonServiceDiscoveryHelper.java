@@ -100,7 +100,6 @@ public class MarathonServiceDiscoveryHelper {
         } else {
             marathon = MarathonClient.getInstanceWithBasicAuth(marathonEndpoint, marathonUsername, marathonPassword);
         }
-        marathon = MarathonClient.getInstance(marathonEndpoint);
         log = logger;
         MarathonPoller marathonPoller = new MarathonPoller(marathon, appId, portIndex);
         scheduledExecutorService.scheduleAtFixedRate(marathonPoller, 0, 10, TimeUnit.SECONDS);
