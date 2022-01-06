@@ -57,7 +57,7 @@ public class DiscoveryTest {
                         .withStatus(200)
                         .withHeader("Content-Type", "application/json")
                         .withBody(mapper.writeValueAsBytes(response))));
-        HazelcastInstance hazelcast = getHazelcastInstance(5701, false);
+        HazelcastInstance hazelcast = getHazelcastInstanceWithoutBasicAuth(5701);
         assertTrue(hazelcast.getCluster().getMembers().size() > 0);
         hazelcast.shutdown();
     }
@@ -84,14 +84,24 @@ public class DiscoveryTest {
                         .withHeader("Content-Type", "application/json")
                         .withBody(mapper.writeValueAsBytes(response))));
 
-        HazelcastInstance hazelcast1 = getHazelcastInstance(5701, false);
-        HazelcastInstance hazelcast2 = getHazelcastInstance(5702, false);
-        HazelcastInstance hazelcast3 = getHazelcastInstance(5703, true);
+        HazelcastInstance hazelcast1 = getHazelcastInstanceWithoutBasicAuth(5701);
+        HazelcastInstance hazelcast2 = getHazelcastInstanceWithoutBasicAuth(5702);
+        HazelcastInstance hazelcast3 = getHazelcastInstanceWithBasicAuth(5703);
         assertTrue(hazelcast3.getCluster().getMembers().size() > 0);
         assertTrue(hazelcast3.getCluster().getMembers().size() == 3);
         hazelcast1.shutdown();
         hazelcast2.shutdown();
         hazelcast3.shutdown();
+    }
+
+    private HazelcastInstance getHazelcastInstanceWithoutBasicAuth(int port)
+            throws UnknownHostException, InterruptedException {
+        return getHazelcastInstance(port, false);
+    }
+
+    private HazelcastInstance getHazelcastInstanceWithBasicAuth(int port)
+            throws UnknownHostException, InterruptedException {
+        return getHazelcastInstance(port, true);
     }
 
     private HazelcastInstance getHazelcastInstance(int port, boolean withBasicAuthMarathon)
