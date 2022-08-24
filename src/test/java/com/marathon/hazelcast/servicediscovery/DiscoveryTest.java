@@ -16,6 +16,9 @@
 
 package com.marathon.hazelcast.servicediscovery;
 
+import client.model.v2.App;
+import client.model.v2.GetAppResponse;
+import client.model.v2.Task;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.github.tomakehurst.wiremock.junit.WireMockRule;
@@ -24,9 +27,6 @@ import com.hazelcast.config.*;
 import com.hazelcast.core.Hazelcast;
 import com.hazelcast.core.HazelcastInstance;
 import com.hazelcast.spi.properties.ClusterProperty;
-import mesosphere.marathon.client.model.v2.App;
-import mesosphere.marathon.client.model.v2.GetAppResponse;
-import mesosphere.marathon.client.model.v2.Task;
 import org.junit.Rule;
 import org.junit.Test;
 import java.io.IOException;
