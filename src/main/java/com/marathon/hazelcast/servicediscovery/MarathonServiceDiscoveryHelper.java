@@ -20,8 +20,8 @@ import client.Marathon;
 import client.MarathonClient;
 import client.model.v2.GetAppResponse;
 import client.utils.MarathonException;
+import com.hazelcast.internal.util.CollectionUtil;
 import com.hazelcast.logging.ILogger;
-import com.hazelcast.util.CollectionUtil;
 
 import java.util.Collections;
 import java.util.List;
