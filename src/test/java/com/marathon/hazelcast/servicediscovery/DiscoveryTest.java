@@ -23,7 +23,7 @@ import com.google.common.collect.Lists;
 import com.hazelcast.config.*;
 import com.hazelcast.core.Hazelcast;
 import com.hazelcast.core.HazelcastInstance;
-import com.hazelcast.instance.GroupProperty;
+import com.hazelcast.spi.properties.ClusterProperty;
 import mesosphere.marathon.client.model.v2.App;
 import mesosphere.marathon.client.model.v2.GetAppResponse;
 import mesosphere.marathon.client.model.v2.Task;
@@ -97,10 +97,10 @@ public class DiscoveryTest {
 
     private HazelcastInstance getHazelcastInstance(int port) throws UnknownHostException, InterruptedException {
         Config config = new Config();
-        config.setProperty(GroupProperty.DISCOVERY_SPI_ENABLED, "true");
-        config.setProperty(GroupProperty.DISCOVERY_SPI_PUBLIC_IP_ENABLED, "true");
-        config.setProperty(GroupProperty.SOCKET_CLIENT_BIND_ANY, "false");
-        config.setProperty(GroupProperty.SOCKET_BIND_ANY, "false");
+        config.setProperty(ClusterProperty.DISCOVERY_SPI_ENABLED.getName(), "true");
+        config.setProperty(ClusterProperty.DISCOVERY_SPI_PUBLIC_IP_ENABLED.getName(), "true");
+        config.setProperty(ClusterProperty.SOCKET_CLIENT_BIND_ANY.getName(), "false");
+        config.setProperty(ClusterProperty.SOCKET_BIND_ANY.getName(), "false");
         NetworkConfig networkConfig = config.getNetworkConfig();
         networkConfig.getInterfaces().addInterface("127.0.0.1").setEnabled(true);
         networkConfig.setPort(port);

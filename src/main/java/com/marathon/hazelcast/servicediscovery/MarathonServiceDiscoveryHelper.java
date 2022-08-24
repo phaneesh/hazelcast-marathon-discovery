@@ -16,8 +16,8 @@
 
 package com.marathon.hazelcast.servicediscovery;
 
+import com.hazelcast.internal.util.CollectionUtil;
 import com.hazelcast.logging.ILogger;
-import com.hazelcast.util.CollectionUtil;
 import mesosphere.marathon.client.Marathon;
 import mesosphere.marathon.client.MarathonClient;
 import mesosphere.marathon.client.model.v2.GetAppResponse;
@@ -62,7 +62,7 @@ public class MarathonServiceDiscoveryHelper {
                 GetAppResponse response = marathon.getApp(app);
                 List<ServiceNode> nodes = response.getApp().getTasks().stream()
                         .map( task -> new ServiceNode(task.getHost(),
-                                CollectionUtil.<Integer>getItemAtPositionOrNull(task.getPorts(), portIndex)))
+                                                      CollectionUtil.<Integer>getItemAtPositionOrNull(task.getPorts(), portIndex)))
                         .collect(Collectors.toList());
                 serviceNodes.getAndSet(nodes);
             } catch (MarathonException e) {

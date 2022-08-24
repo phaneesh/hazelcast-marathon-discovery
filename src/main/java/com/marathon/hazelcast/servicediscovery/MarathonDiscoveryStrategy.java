@@ -16,14 +16,13 @@
 
 package com.marathon.hazelcast.servicediscovery;
 
+import com.hazelcast.cluster.Address;
 import com.hazelcast.logging.ILogger;
-import com.hazelcast.nio.Address;
 import com.hazelcast.spi.discovery.AbstractDiscoveryStrategy;
 import com.hazelcast.spi.discovery.DiscoveryNode;
 import com.hazelcast.spi.discovery.SimpleDiscoveryNode;
 
 import java.net.UnknownHostException;
-import java.util.Collections;
 import java.util.Map;
 import java.util.stream.Collectors;
 
@@ -64,9 +63,8 @@ public class MarathonDiscoveryStrategy extends AbstractDiscoveryStrategy {
 
     public Iterable<DiscoveryNode> discoverNodes() {
         return MarathonServiceDiscoveryHelper.getAllNodes().stream().map(n -> {
-            Map<String, Object> attributes = Collections.<String, Object>singletonMap("hostname", n.getHost());
             try {
-                return new SimpleDiscoveryNode(new Address(n.getHost(), n.getPort()), attributes);
+                return new SimpleDiscoveryNode(new Address(n.getHost(), n.getPort()));
             } catch (UnknownHostException e) {
                 logger.severe("Error adding discovered member", e);
                 return null;
