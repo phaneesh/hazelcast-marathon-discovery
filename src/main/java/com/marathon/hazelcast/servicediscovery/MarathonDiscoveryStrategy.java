@@ -37,6 +37,10 @@ public class MarathonDiscoveryStrategy extends AbstractDiscoveryStrategy {
 
     private int port;
 
+    private String marathonUsername;
+
+    private String marathonPassword;
+
     private ILogger logger;
 
     public MarathonDiscoveryStrategy(final ILogger logger, Map<String, Comparable> properties) {
@@ -44,9 +48,12 @@ public class MarathonDiscoveryStrategy extends AbstractDiscoveryStrategy {
         this.marathonEndpoint = getOrNull("discovery.marathon", MarathonDiscoveryConfiguration.MARATHON_ENDPOINT);
         this.appId = getOrNull("discovery.marathon", MarathonDiscoveryConfiguration.APP_ID);
         this.port = Integer.parseInt(getOrNull("discovery.marathon", MarathonDiscoveryConfiguration.PORT_INDEX));
+        this.marathonUsername = getOrNull("discovery.marathon", MarathonDiscoveryConfiguration.MARATHON_USERNAME);
+        this.marathonPassword = getOrNull("discovery.marathon", MarathonDiscoveryConfiguration.MARATHON_PASSWORD);
         this.logger = logger;
         try {
-            MarathonServiceDiscoveryHelper.start(marathonEndpoint, appId, port, logger);
+            MarathonServiceDiscoveryHelper.start(marathonEndpoint, appId, port, marathonUsername, marathonPassword,
+                    logger);
         } catch (Exception e) {
            logger.severe("Failed to start service discovery!", e);
         }

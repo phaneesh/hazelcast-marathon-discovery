@@ -92,8 +92,14 @@ public class MarathonServiceDiscoveryHelper {
         }
     }
 
-    public static void start(final String marathonEndpoint, final String appId, final int portIndex, final ILogger logger) throws Exception {
-        marathon = MarathonClient.getInstance(marathonEndpoint);
+    public static void start(final String marathonEndpoint, final String appId, final int portIndex,
+            final String marathonUsername, final String marathonPassword, final ILogger logger) throws Exception {
+        if (marathonUsername == null  || marathonUsername.isEmpty() ||
+                marathonPassword == null || marathonPassword.isEmpty()) {
+            marathon = MarathonClient.getInstance(marathonEndpoint);
+        } else {
+            marathon = MarathonClient.getInstanceWithBasicAuth(marathonEndpoint, marathonUsername, marathonPassword);
+        }
         log = logger;
         MarathonPoller marathonPoller = new MarathonPoller(marathon, appId, portIndex);
         scheduledExecutorService.scheduleAtFixedRate(marathonPoller, 0, 10, TimeUnit.SECONDS);
